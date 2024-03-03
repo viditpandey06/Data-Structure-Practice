@@ -19,11 +19,13 @@ public class CycleSort {
         int ctrIndx=0;
         while (i<nums.length) {
              ctrIndx=nums[i];
-             if(nums[i]!=i){
+             // [9,6,4,2,3,5,7,0,1]
+             if(nums[i]!=i && nums[i]<nums.length){
                     int temp=nums[i];
                     nums[i]=nums[ctrIndx];
                     nums[ctrIndx]=temp;
              }
+             
              else{
                 i++;
              }
