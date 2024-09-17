@@ -1,3 +1,4 @@
+import java.util.*;
 class Solution
 {
     long substrCount (String s, int k1) {
