@@ -1,27 +1,29 @@
-public class NiceSubarrays {
+import java.util.*;
+class NiceSubarrays {
     public static void main(String[] args) {
-        int [] nums = {2,2,2,1,2,2,1,2,2,2};
-        int k =2;
-        System.out.println(numberOfSubarrays(nums, k));
+        NiceSubarrays niceSubarrays = new NiceSubarrays();
+        int[] nums = {1, 1, 1, 1, 1};
+        int k = 3;
+        System.out.println(niceSubarrays.numberOfSubarrays(nums, k));
     }
-    public static int numberOfSubarrays(int[] nums, int k) {
-        int l=0,r=0,oddCount=0,maxLen=0,ctr=0;
-        while(r<nums.length){
-            if(nums[r]%2!=0){
+    public int numberOfSubarrays(int[] nums, int k) {
+        int count = 0, oddCount = 0;
+        Map<Integer, Integer> prefixMap = new HashMap<>();
+        prefixMap.put(0, 1); // Base case for subarrays starting from index 0
+        
+        for (int num : nums) {
+            // Increment odd count if the number is odd
+            if (num % 2 != 0) {
                 oddCount++;
             }
-            while(oddCount>k){
-                if(nums[l]%2!=0){
-                    oddCount--;
-                }
-                l++;
-            }
-            if(oddCount==k){
-                ctr++;
-                maxLen=Math.max(maxLen,r-l+1);
-            }
-            r++;
+            
+            // Check for subarrays ending at the current index with k odd numbers
+            count += prefixMap.getOrDefault(oddCount - k, 0);
+            
+            // Update the prefix map with the current odd count
+            prefixMap.put(oddCount, prefixMap.getOrDefault(oddCount, 0) + 1);
         }
-        return ctr;
+        
+        return count;
     }
 }
