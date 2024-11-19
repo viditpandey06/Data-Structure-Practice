@@ -1,3 +1,4 @@
+import java.util.HashMap; 
 class Solution {
     public int numSubarraysWithSum(int[] arr, int target) {
        int sum=0;

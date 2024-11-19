@@ -1,4 +1,5 @@
-class Solution {
+import java.util.*;
+class CombinationSum2Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
         Arrays.sort(candidates); // Sorting is important to handle duplicates
