@@ -3,6 +3,7 @@ public class MakeStringSubsequenceUsingCyclicIncrements {
         Solution solution = new Solution();
         String str1 = "abc";
         String str2 = "bcd";
+        System.out.println("Hi");
         boolean result = solution.canMakeSubsequence(str1, str2);
         System.out.println("Can make subsequence: " + result);
     }
